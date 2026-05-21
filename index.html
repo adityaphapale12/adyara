@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADYARA Luxury Fashion</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#0b0b0b;
+color:white;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.88);
+backdrop-filter:blur(12px);
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+font-size:32px;
+font-weight:800;
+letter-spacing:5px;
+}
+
+.logo span{
+color:#b58cff;
+}
+
+.nav-links{
+display:flex;
+gap:35px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+transition:0.3s;
+position:relative;
+}
+
+.nav-links a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:#b58cff;
+transition:0.4s;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+.nav-links a:hover{
+color:#b58cff;
+}
+
+.icons{
+display:flex;
+gap:22px;
+font-size:22px;
+align-items:center;
+}
+
+#cartIcon{
+position:relative;
+cursor:pointer;
+transition:0.3s;
+}
+
+#cartIcon:hover{
+transform:scale(1.1);
+}
+
+.cart-count{
+position:absolute;
+top:-10px;
+right:-12px;
+background:#b58cff;
+color:black;
+width:20px;
+height:20px;
+border-radius:50%;
+font-size:11px;
+font-weight:700;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.78)),
+url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+padding:0 8%;
+}
+
+.hero-content{
+max-width:760px;
+}
+
+.hero h1{
+font-size:85px;
+line-height:1;
+margin-bottom:25px;
+font-weight:800;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.9;
+color:#d3d3d3;
+margin-bottom:35px;
+}
+
+.hero-buttons{
+display:flex;
+gap:20px;
+}
+
+.btn{
+padding:16px 34px;
+border:none;
+border-radius:50px;
+font-weight:700;
+cursor:pointer;
+transition:0.4s;
+font-size:14px;
+}
+
+.primary{
+background:#b58cff;
+color:black;
+}
+
+.primary:hover{
+transform:translateY(-5px);
+box-shadow:0 12px 30px rgba(181,140,255,0.4);
+}
+
+.secondary{
+background:transparent;
+border:1px solid rgba(255,255,255,0.15);
+color:white;
+}
+
+.secondary:hover{
+background:white;
+color:black;
+}
+
+/* SECTION */
+
+.section{
+padding:110px 5%;
+}
+
+.section-title{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:45px;
+}
+
+.section-title h2{
+font-size:42px;
+}
+
+.section-title p{
+color:#999;
+}
+
+/* PRODUCTS */
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.card{
+background:#141414;
+border-radius:25px;
+overflow:hidden;
+transition:0.4s;
+position:relative;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:400px;
+object-fit:cover;
+}
+
+.badge{
+position:absolute;
+top:15px;
+left:15px;
+background:#b58cff;
+color:black;
+padding:8px 14px;
+border-radius:40px;
+font-size:12px;
+font-weight:700;
+}
+
+.card-content{
+padding:22px;
+}
+
+.card-content h3{
+font-size:20px;
+margin-bottom:10px;
+}
+
+.price{
+font-size:22px;
+font-weight:700;
+margin-bottom:18px;
+}
+
+.card button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:14px;
+background:#b58cff;
+color:black;
+font-weight:700;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card button:hover{
+opacity:0.85;
+}
+
+/* ABOUT */
+
+.luxury-box{
+background:#141414;
+padding:60px;
+border-radius:30px;
+text-align:center;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.luxury-box h1{
+font-size:70px;
+letter-spacing:5px;
+margin-bottom:20px;
+}
+
+.luxury-box p{
+max-width:900px;
+margin:auto;
+line-height:2;
+color:#cfcfcf;
+font-size:18px;
+}
+
+.madeby{
+margin-top:30px;
+font-size:14px;
+letter-spacing:4px;
+color:#b58cff;
+font-weight:700;
+}
+
+/* CART */
+
+.cart-panel{
+position:fixed;
+top:0;
+right:-420px;
+width:420px;
+height:100vh;
+background:#171717;
+z-index:5000;
+padding:30px;
+transition:0.5s;
+overflow-y:auto;
+border-left:1px solid rgba(255,255,255,0.08);
+}
+
+.cart-panel.active{
+right:0;
+}
+
+.cart-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.close-cart{
+font-size:28px;
+cursor:pointer;
+}
+
+.cart-item{
+display:flex;
+gap:15px;
+margin-bottom:20px;
+padding-bottom:20px;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.cart-item img{
+width:90px;
+height:110px;
+object-fit:cover;
+border-radius:12px;
+}
+
+.total{
+margin-top:30px;
+font-size:24px;
+font-weight:700;
+}
+
+.checkout{
+margin-top:20px;
+width:100%;
+padding:16px;
+border:none;
+border-radius:14px;
+background:#b58cff;
+font-weight:700;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+padding:60px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+
+footer h2{
+font-size:30px;
+letter-spacing:5px;
+margin-bottom:10px;
+}
+
+footer p{
+color:#999;
+margin-bottom:12px;
+}
+
+.footer-maker{
+color:#b58cff;
+font-weight:700;
+letter-spacing:3px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:55px;
+}
+
+.nav-links{
+display:none;
+}
+
+.cart-panel{
+width:100%;
+}
+
+.luxury-box h1{
+font-size:45px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="logo">
+AD<span>YARA</span>
+</div>
+
+<div class="nav-links">
+<a href="#men">MEN</a>
+<a href="#women">WOMEN</a>
+<a href="#shoes">SHOES</a>
+<a href="#about">ABOUT</a>
+</div>
+
+<div class="icons">
+
+<span id="cartIcon">
+🛒
+<span class="cart-count" id="cartCount">0</span>
+</span>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>MODERN LUXURY FASHION.</h1>
+
+<p>
+ADYARA is a premium fashion destination built for modern streetwear,
+luxury essentials and timeless aesthetics. Crafted with bold visuals,
+minimal elegance and immersive shopping experience.
+</p>
+
+<div class="hero-buttons">
+
+<button class="btn primary" onclick="scrollToMen()">
+SHOP NOW
+</button>
+
+<button class="btn secondary" onclick="scrollToWomen()">
+NEW DROP
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- MEN -->
+
+<section class="section" id="men">
+
+<div class="section-title">
+<h2>Men Collection</h2>
+<p>Modern Streetwear</p>
+</div>
+
+<div class="products">
+
+<div class="card">
+
+<span class="badge">NEW</span>
+
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Oversized Black Tee</h3>
+<div class="price">₹2,499</div>
+
+<button onclick="addToCart('Oversized Black Tee',2499)">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<span class="badge">HOT</span>
+
+<img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Minimal White Hoodie</h3>
+<div class="price">₹3,899</div>
+
+<button onclick="addToCart('Minimal White Hoodie',3899)">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<span class="badge">LUXURY</span>
+
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Premium Street Jacket</h3>
+<div class="price">₹5,499</div>
+
+<button onclick="addToCart('Premium Street Jacket',5499)">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- WOMEN -->
+
+<section class="section" id="women">
+
+<div class="section-title">
+<h2>Women Collection</h2>
+<p>Luxury Fashion</p>
+</div>
+
+<div class="products">
+
+<div class="card">
+
+<span class="badge">PREMIUM</span>
+
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Women Luxury Fit</h3>
+<div class="price">₹6,499</div>
+
+<button onclick="addToCart('Women Luxury Fit',6499)">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<span class="badge">TRENDING</span>
+
+<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Premium Beige Outfit</h3>
+<div class="price">₹4,999</div>
+
+<button onclick="addToCart('Premium Beige Outfit',4999)">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<span class="badge">NEW</span>
+
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Luxury Black Dress</h3>
+<div class="price">₹7,299</div>
+
+<button onclick="addToCart('Luxury Black Dress',7299)">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- SHOES -->
+
+<section class="section" id="shoes">
+
+<div class="section-title">
+<h2>Shoes Collection</h2>
+<p>Modern Footwear</p>
+</div>
+
+<div class="products">
+
+<div class="card">
+
+<span class="badge">NEW</span>
+
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Luxury Red Sneakers</h3>
+<div class="price">₹7,999</div>
+
+<button onclick="addToCart('Luxury Red Sneakers',7999)">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<span class="badge">HOT</span>
+
+<img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Premium White Shoes</h3>
+<div class="price">₹6,499</div>
+
+<button onclick="addToCart('Premium White Shoes',6499)">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<span class="badge">SPORT</span>
+
+<img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Street Runner X</h3>
+<div class="price">₹8,299</div>
+
+<button onclick="addToCart('Street Runner X',8299)">
+Add To Cart
+</button>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+<div class="section-title">
+<h2>About ADYARA</h2>
+<p>Luxury • Minimal • Modern</p>
+</div>
+
+<div class="luxury-box">
+
+<h1>ADYARA</h1>
+
+<p>
+A modern premium fashion platform focused on elevated streetwear,
+luxury essentials and immersive shopping experience.
+Built with dark minimal aesthetics, smooth interactions
+and bold contemporary fashion identity.
+</p>
+
+<div class="madeby">
+MADE BY ADITYA PHAPALE
+</div>
+
+</div>
+
+</section>
+
+<!-- CART -->
+
+<div class="cart-panel" id="cartPanel">
+
+<div class="cart-header">
+
+<h2>Your Cart</h2>
+
+<div class="close-cart" onclick="toggleCart()">
+✕
+</div>
+
+</div>
+
+<div id="cartItems"></div>
+
+<div class="total">
+Total: ₹<span id="total">0</span>
+</div>
+
+<button class="checkout">
+Checkout
+</button>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>ADYARA</h2>
+
+<p>
+Luxury Fashion • Premium Streetwear • Dark Aesthetic
+</p>
+
+<div class="footer-maker">
+MADE BY ADITYA PHAPALE
+</div>
+
+</footer>
+
+<script>
+
+let cart = [];
+let total = 0;
+
+document.getElementById('cartIcon').addEventListener('click',toggleCart);
+
+function toggleCart(){
+
+document.getElementById('cartPanel').classList.toggle('active');
+
+}
+
+function addToCart(name,price){
+
+cart.push({
+name,
+price
+});
+
+total += price;
+
+document.getElementById('cartCount').innerText = cart.length;
+
+document.getElementById('total').innerText = total;
+
+renderCart();
+
+}
+
+function renderCart(){
+
+const cartItems = document.getElementById('cartItems');
+
+cartItems.innerHTML = "";
+
+cart.forEach(item=>{
+
+cartItems.innerHTML += `
+
+<div class="cart-item">
+
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=500&auto=format&fit=crop">
+
+<div>
+<h4>${item.name}</h4>
+<p>₹${item.price}</p>
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+function scrollToMen(){
+
+document.getElementById('men').scrollIntoView({
+behavior:'smooth'
+});
+
+}
+
+function scrollToWomen(){
+
+document.getElementById('women').scrollIntoView({
+behavior:'smooth'
+});
+
+}
+
+</script>
+
+</body>
+</html>
